@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
-import { Button, Pane } from "neetoui";
-import { Input, Textarea } from "neetoui/formik";
+import { Button, Pane, Toastr } from "neetoui";
+import { Input, Textarea, Select } from "neetoui/formik";
+import { Check } from "neetoicons";
 
-import notesApi from "apis/notes";
-
+import { ASSIGNED_CONTACT_OPTIONS, TAG_OPTIONS } from "./constants";
 import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
 
-export default function NoteForm({ onClose, refetch, note, isEdit }) {
+export default function NoteForm({ onClose, note }) {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async values => {
+  const handleSubmit = () => {
     try {
-      if (isEdit) {
-        await notesApi.update(note.id, values);
-      } else {
-        await notesApi.create(values);
-      }
-      refetch();
       onClose();
+      Toastr.success("Form has been successfully saved.");
     } catch (err) {
       logger.error(err);
     }
@@ -49,17 +44,36 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               rows={8}
               required
             />
+            <Select
+            required
+            isMulti
+            label="Assigned Contact"
+            name="assigned_contacts"
+            placeholder="Select Role"
+            className="w-full flex-grow-0"
+            options={ASSIGNED_CONTACT_OPTIONS}
+          />
+          <Select
+            required
+            isMulti
+            label="Tags"
+            name="tags"
+            placeholder="Select Role"
+            className="w-full flex-grow-0"
+            options={TAG_OPTIONS}
+          />
           </Pane.Body>
           <Pane.Footer>
             <Button
               type="submit"
-              label={isEdit ? "Update" : "Save Changes"}
+              label="Save Changes"
               size="large"
               style="primary"
               className="mr-3"
               disabled={isSubmitting}
               loading={isSubmitting}
               onClick={() => setSubmitted(true)}
+              icon={Check}
             />
             <Button
               onClick={onClose}
