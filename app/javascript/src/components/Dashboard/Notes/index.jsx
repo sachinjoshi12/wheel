@@ -32,10 +32,7 @@ const Notes = () => {
 
   return (
     <>
-      <Menubar
-        category={category}
-        setCategory={setCategory}
-      />
+      <Menubar/>
       <Container>
         <Header
           title="Notes"
