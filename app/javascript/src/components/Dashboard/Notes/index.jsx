@@ -30,12 +30,14 @@ const Notes = () => {
     return <PageLoader />;
   }
 
+  const handleDelete = id => {
+    setShowDeleteAlert(true);
+    setSelectedNoteIds(id);
+  };
+
   return (
     <>
-      <Menubar
-        category={category}
-        setCategory={setCategory}
-      />
+      <Menubar />
       <Container>
         <Header
           title="Notes"
@@ -53,7 +55,7 @@ const Notes = () => {
           menuBarToggle
         />
         {notes.length ? (
-          notes?.map((note, key) => <Item key={key} note={note} />)
+          notes?.map(note => <Item key={note.id} note={note} deleteHandler={handleDelete}/>)
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
