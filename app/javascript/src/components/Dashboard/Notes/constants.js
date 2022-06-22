@@ -24,3 +24,38 @@ export const NOTES_TABLE_COLUMN_DATA = [
     width: "70%",
   },
 ];
+
+export const NOTES_DATA = [
+  {
+    title: "How to Claim the warranty?",
+    description:
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+    time: "Wdnesday 10.30AM",
+    ago: "2 days ago",
+    draftedBy: "Oliver Smith",
+  },
+  {
+    title: "How to Claim the warranty?",
+    description:
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+    time: "Wdnesday 10.30AM",
+    ago: "2 days ago",
+    createdBy: "Sachin Joshi",
+  },
+  {
+    title: "How to Claim the warranty?",
+    description:
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+    time: "Wdnesday 10.30AM",
+    ago: "2 days ago",
+    createdBy: "Sachin Joshi",
+  },
+  {
+    title: "How to Claim the warranty?",
+    description:
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+    time: "Wdnesday 10.30AM",
+    ago: "2 days ago",
+    createdBy: "Sachin Joshi",
+  },
+];
