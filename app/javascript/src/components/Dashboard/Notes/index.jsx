@@ -20,7 +20,6 @@ const Notes = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
-  const [category, setCategory] = useState("All");
 
   useEffect(() => {
     setNotes([...NOTES_DATA]);
