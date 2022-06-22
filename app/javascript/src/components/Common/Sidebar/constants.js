@@ -1,4 +1,4 @@
-import { Notes, Settings } from "neetoicons";
+import { Text, UserCircle, Inbox } from "neetoicons";
 
 export const APP_NAME = "Wheel";
 
@@ -10,11 +10,19 @@ export const SIDENAV_LINKS = [
   {
     label: "Notes",
     to: "/notes",
-    icon: Notes,
+    icon: Text,
+  },
+  {
+    label: "Contacts",
+    to: "/contacts",
+    icon: UserCircle,
   },
   {
     label: "Settings",
     to: "/settings",
-    icon: Settings,
+    icon: Inbox,
   },
 ];
+
+export const AVATAR_IMAGE_URL =
+ " https://thumbs.dreamstime.com/z/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg";
