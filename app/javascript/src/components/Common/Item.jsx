@@ -3,7 +3,7 @@ import React from "react";
 import { MenuVertical, Clock } from "neetoicons";
 import { Typography, Dropdown, Avatar, Tooltip } from "neetoui";
 
-const Item = ({ note }) => {
+const Item = ({ note, deleteHandler }) => {
   return (
     <div className="neeto-ui-shadow-s h-[146px] w-full p-4">
       <div className="flex">
@@ -16,7 +16,7 @@ const Item = ({ note }) => {
             buttonStyle="text"
           >
             <li className="m-1">Edit</li>
-            <li>Delete</li>
+            <li onClick={() => deleteHandler(note.id)}>Delete</li>
           </Dropdown>
         </div>
       </div>
