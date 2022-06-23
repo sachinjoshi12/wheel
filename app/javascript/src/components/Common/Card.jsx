@@ -3,7 +3,7 @@ import React from "react";
 import { MenuVertical, Clock } from "neetoicons";
 import { Typography, Dropdown, Avatar, Tooltip } from "neetoui";
 
-const Item = ({ note, deleteHandler }) => (
+const Card = ({ note, deleteHandler }) => (
   <div className="neeto-ui-shadow-s h-[146px] w-full p-4">
     <div className="flex">
       <Typography style="h4">{note.title}</Typography>
@@ -46,4 +46,4 @@ const Item = ({ note, deleteHandler }) => (
   </div>
 );
 
-export default Item;
+export default Card;

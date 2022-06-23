@@ -6,11 +6,13 @@ import { Container, Header } from "neetoui/layouts";
 import { CONTACTS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Menubar from "./Menubar";
+import NewContactPane from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [showNewPane, setShowNewPane] = useState(false);
 
   const contacts = [...CONTACTS];
 
@@ -25,7 +27,11 @@ const Contacts = () => {
         <Header
           title="All Contacts"
           actionBlock={
-            <Button onClick={() => {}} label="Add Contact" icon="ri-add-line" />
+            <Button
+              onClick={() => setShowNewPane(true)}
+              label="Add New Contact"
+              icon="ri-add-line"
+            />
           }
           searchProps={{
             value: searchTerm,
@@ -34,6 +40,7 @@ const Contacts = () => {
           menuBarToggle
         />
         <Table contacts={contacts} deleteHandler={deleteHandler} />
+        <NewContactPane showPane={showNewPane} setShowPane={setShowNewPane} />
         {showDeleteAlert && (
           <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
         )}
