@@ -8,19 +8,17 @@ import { NOTES_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NewNotePane from "./Pane/Create";
 
-import { Item, EmptyState, Menubar } from "../../Common";
+import { Card, EmptyState, Menubar } from "../../Common";
 
 const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
 
   const notes = [...NOTES_DATA];
 
-  const handleDelete = id => {
+  const handleDelete = () => {
     setShowDeleteAlert(true);
-    setSelectedNoteIds(id);
   };
 
   return (
@@ -44,7 +42,7 @@ const Notes = () => {
         />
         {notes.length ? (
           notes?.map(note => (
-            <Item key={note.id} note={note} deleteHandler={handleDelete} />
+            <Card key={note.id} note={note} deleteHandler={handleDelete} />
           ))
         ) : (
           <EmptyState
@@ -60,11 +58,7 @@ const Notes = () => {
           setShowPane={setShowNewNotePane}
         />
         {showDeleteAlert && (
-          <DeleteAlert
-            selectedNoteIds={selectedNoteIds}
-            onClose={() => setShowDeleteAlert(false)}
-            setSelectedNoteIds={setSelectedNoteIds}
-          />
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
         )}
       </Container>
     </>

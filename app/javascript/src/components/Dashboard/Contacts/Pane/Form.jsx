@@ -3,19 +3,17 @@ import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { Check } from "neetoicons";
 import { Button, Pane, Toastr } from "neetoui";
-import { Input, Textarea, Select } from "neetoui/formik";
+import { Input, Select } from "neetoui/formik";
 
-import { ASSIGNED_CONTACT_OPTIONS, TAG_OPTIONS } from "./constants";
+import { CONTACT_VALIDATION_SCHEMA, ROLE_OPTIONS } from "./constants";
 
-import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
-
-export default function NoteForm({ onClose, note }) {
+const ContactForm = ({ onClose, contact }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
     try {
       onClose();
-      Toastr.success("Note has been successfully saved.");
+      Toastr.success("contact has been successfully saved.");
     } catch (err) {
       logger.error(err);
     }
@@ -23,48 +21,40 @@ export default function NoteForm({ onClose, note }) {
 
   return (
     <Formik
-      initialValues={note}
+      initialValues={contact}
       onSubmit={handleSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}
-      validationSchema={NOTES_FORM_VALIDATION_SCHEMA}
+      validationSchema={CONTACT_VALIDATION_SCHEMA}
     >
       {({ isSubmitting }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
+            <div className="flex w-full justify-between">
+              <Input
+                required
+                label="First Name"
+                name="firstName"
+                className="mr-6"
+              />
+              <Input required label="Last Name" name="lastName" />
+            </div>
             <Input
-              label="Title"
-              name="title"
-              className="w-full flex-grow-0"
               required
-            />
-            <Textarea
-              label="Description"
-              name="description"
+              label="Email"
+              name="email"
               className="w-full flex-grow-0"
-              rows={8}
-              required
             />
             <Select
               required
-              isMulti
-              label="Assigned Contact"
-              name="assigned_contacts"
+              label="Role"
+              name="role"
+              options={ROLE_OPTIONS}
               placeholder="Select Role"
-              className="w-full flex-grow-0"
-              options={ASSIGNED_CONTACT_OPTIONS}
-            />
-            <Select
-              required
-              isMulti
-              label="Tags"
-              name="tags"
-              placeholder="Select Role"
-              className="w-full flex-grow-0"
-              options={TAG_OPTIONS}
+              className="w-full"
             />
           </Pane.Body>
-          <Pane.Footer>
+          <Pane.Footer className="border-t">
             <Button
               type="submit"
               label="Save Changes"
@@ -87,4 +77,6 @@ export default function NoteForm({ onClose, note }) {
       )}
     </Formik>
   );
-}
+};
+
+export default ContactForm;

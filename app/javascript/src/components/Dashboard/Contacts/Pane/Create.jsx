@@ -2,19 +2,22 @@ import React from "react";
 
 import { Pane, Typography } from "neetoui";
 
-import Form from "./Form";
+import { CONTACT_INITIAL_VALUES } from "./constants";
+import ContactForm from "./Form";
 
-export default function EditNotePane({ showPane, setShowPane, note }) {
+const NewContactPane = ({ showPane, setShowPane }) => {
   const onClose = () => setShowPane(false);
 
   return (
     <Pane isOpen={showPane} onClose={onClose}>
       <Pane.Header>
         <Typography style="h2" weight="semibold">
-          Edit Note
+          Add a New Contact
         </Typography>
       </Pane.Header>
-      <Form onClose={onClose} note={note} />
+      <ContactForm onClose={onClose} contact={CONTACT_INITIAL_VALUES} />
     </Pane>
   );
-}
+};
+
+export default NewContactPane;
