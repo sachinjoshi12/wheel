@@ -2,23 +2,13 @@ import React, { useState } from "react";
 
 import { Alert, Toastr } from "neetoui";
 
-const DeleteAlert = ({
-  setContacts,
-  onClose,
-  selectedContactId,
-  setSelectedContactId,
-}) => {
-  const [deleting, setDeleting] = useState(false);
+const DeleteAlert = ({ onClose }) => {
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
-    setDeleting(true);
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== selectedContactId)
-    );
-    Toastr.success("Contact deleted succesfully");
-    setSelectedContactId();
-    setDeleting(false);
+    setIsDeleted(true);
     onClose();
+    Toastr.success("Contact deleted succesfully");
   };
 
   return (
@@ -28,7 +18,7 @@ const DeleteAlert = ({
       onClose={onClose}
       message="Are you sure you want to continue? This cannot be undone."
       title="Delete Contact"
-      isSubmitting={deleting}
+      isSubmitting={isDeleted}
     />
   );
 };

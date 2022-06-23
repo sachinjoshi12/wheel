@@ -4,9 +4,9 @@ import { Search, Plus, Settings } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-const Menubar = ({ showMenubar = false }) => (
+const Menubar = () => (
   <div className="flex">
-    <MenuBar showMenu={showMenubar} title="Contacts">
+    <MenuBar showMenu title="Contacts">
       <MenuBar.Block label="All" count={0} active />
       <MenuBar.Block label="Archived" count={0} />
       <MenuBar.Block label="Completed" count={0} />

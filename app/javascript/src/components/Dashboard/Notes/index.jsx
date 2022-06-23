@@ -1,33 +1,22 @@
-// @ts-nocheck
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Button, PageLoader } from "neetoui";
+import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
-
-import Item from "components/Common/Item";
-import EmptyState from "components/Common/EmptyState";
-import Menubar from "components/Common/Menubar";
-import EditNotePane from "./Pane/Edit";
 
 import { NOTES_DATA } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NewNotePane from "./Pane/Create";
+
+import { Item, EmptyState, Menubar } from "../../Common";
 
 const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
-  const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    setNotes([...NOTES_DATA]);
-  }, []);
-
-  if (loading) {
-    return <PageLoader />;
-  }
+  const notes = [...NOTES_DATA];
 
   const handleDelete = id => {
     setShowDeleteAlert(true);
@@ -54,7 +43,9 @@ const Notes = () => {
           menuBarToggle
         />
         {notes.length ? (
-          notes?.map(note => <Item key={note.id} note={note} deleteHandler={handleDelete}/>)
+          notes?.map(note => (
+            <Item key={note.id} note={note} deleteHandler={handleDelete} />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -68,11 +59,6 @@ const Notes = () => {
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
         />
-        <EditNotePane
-        showPane={showEditNote}
-        setShowPane={setShowEditNote}
-        note={selectedNote}
-      />
         {showDeleteAlert && (
           <DeleteAlert
             selectedNoteIds={selectedNoteIds}

@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 
-import { Alert } from "neetoui";
+import { Alert, Toastr } from "neetoui";
 
-//import notesApi from "apis/notes";
-
-const DeleteAlert = ({
-  onClose,
-  setSelectedNoteIds,
-  setShowDeleteAlert
-}) => {
-  const [deleting, setDeleting] = useState(false);
+const DeleteAlert = ({ onClose }) => {
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
-    setDeleting(true);
-    setDeleting(false);
-    setSelectedNoteIds(null);
-    setShowDeleteAlert(false);
+    setIsDeleted(true);
+    onClose();
+    Toastr.success("Note deleted succesfully");
   };
 
   return (
@@ -25,7 +18,7 @@ const DeleteAlert = ({
       onClose={onClose}
       message="Are you sure you want to delete this note? This cannot be undone."
       title="Delete note"
-      isSubmitting={deleting}
+      isSubmitting={isDeleted}
     />
   );
 };
