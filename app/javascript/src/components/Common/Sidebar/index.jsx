@@ -11,17 +11,15 @@ const Sidebar = () => {
   const bottomLinks = [
     {
       label: "My Profile",
-      // onClick: () => history.push(PROFILE_PATH, { resetTab: true }),
     },
     {
       label: "Logout",
-      // onClick: handleLogout,
     },
   ];
 
   const handleCollapse = e => {
     e.preventDefault();
-    setIsSidebarCollapsed(!isSidebarCollapsed);
+    setIsSidebarCollapsed(prevIsSidebarCollapsed => !prevIsSidebarCollapsed);
   };
 
   return (

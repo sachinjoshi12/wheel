@@ -40,33 +40,36 @@ export const NOTES_DATA = [
     id: 1,
     title: "How to Claim the warranty?",
     description:
-      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting\" ",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
     draftedBy: "Oliver Smith",
   },
-  { id: 2,
+  {
+    id: 2,
     title: "How to Claim the warranty?",
     description:
-      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting\" ",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdBy: "Sachin Joshi",
+    createdBy: "Oliver Smith",
   },
-  { id: 3,
+  {
+    id: 3,
     title: "How to Claim the warranty?",
     description:
-      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting\" ",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdBy: "Sachin Joshi",
+    createdBy: "Oliver Smith",
   },
-  { id: 4,
+  {
+    id: 4,
     title: "How to Claim the warranty?",
     description:
-      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting",
+      "\"Are you getting my texts??? she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn't getting. Of course he was getting them, but if he wasn't getting\" ",
     time: "Wdnesday 10.30AM",
     ago: "2 days ago",
-    createdBy: "Sachin Joshi",
+    createdBy: "Oliver Smith",
   },
 ];

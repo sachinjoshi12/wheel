@@ -25,4 +25,4 @@ export const SIDENAV_LINKS = [
 ];
 
 export const AVATAR_IMAGE_URL =
- " https://thumbs.dreamstime.com/z/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg";
+  "https://thumbs.dreamstime.com/z/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg";

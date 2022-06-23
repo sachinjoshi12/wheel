@@ -4,12 +4,7 @@ import { Pane, Typography } from "neetoui";
 
 import Form from "./Form";
 
-export default function EditNotePane({
-  fetchNotes,
-  showPane,
-  setShowPane,
-  note,
-}) {
+export default function EditNotePane({ showPane, setShowPane, note }) {
   const onClose = () => setShowPane(false);
 
   return (
@@ -19,7 +14,7 @@ export default function EditNotePane({
           Edit Note
         </Typography>
       </Pane.Header>
-      <Form isEdit onClose={onClose} refetch={fetchNotes} note={note} />
+      <Form onClose={onClose} note={note} />
     </Pane>
   );
 }

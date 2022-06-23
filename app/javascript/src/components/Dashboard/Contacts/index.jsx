@@ -10,19 +10,17 @@ import Table from "./Table";
 
 const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [showMenubar, setShowMenuBar] = useState(true);
-  const [contacts, setContacts] = useState(CONTACTS);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
-  const [selectedContactId, setSelectedContactId] = useState();
 
-  const deleteHandler = id => {
-    setSelectedContactId(id);
+  const contacts = [...CONTACTS];
+
+  const deleteHandler = () => {
     setShowDeleteAlert(true);
   };
 
   return (
     <>
-      <Menubar showMenubar={showMenubar} />
+      <Menubar />
       <Container>
         <Header
           title="All Contacts"
@@ -33,16 +31,11 @@ const Contacts = () => {
             value: searchTerm,
             onChange: e => setSearchTerm(e.target.value),
           }}
-          menuBarToggle={() => setShowMenuBar(prevValue => !prevValue)}
+          menuBarToggle
         />
         <Table contacts={contacts} deleteHandler={deleteHandler} />
         {showDeleteAlert && (
-          <DeleteAlert
-            selectedContactId={selectedContactId}
-            onClose={() => setShowDeleteAlert(false)}
-            setContacts={setContacts}
-            setSelectedContactId={setSelectedContactId}
-          />
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
         )}
       </Container>
     </>

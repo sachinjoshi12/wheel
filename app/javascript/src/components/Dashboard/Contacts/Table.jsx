@@ -48,7 +48,6 @@ const Table = ({ contacts, deleteHandler }) => {
     <div className="notes-table-height w-full">
       <NeetoUITable
         allowRowClick
-        fixedHeight
         defaultPageSize={PAGE_SIZE}
         currentPageNumber={currentPage}
         handlePageChange={page => setCurrentPage(page)}

@@ -6,7 +6,7 @@ import Form from "./Form";
 
 import { NOTES_FORM_INITIAL_FORM_VALUES } from "../constants";
 
-export default function NewNotePane({ fetchNotes, showPane, setShowPane }) {
+export default function NewNotePane({ showPane, setShowPane }) {
   const onClose = () => setShowPane(false);
 
   return (
@@ -16,12 +16,7 @@ export default function NewNotePane({ fetchNotes, showPane, setShowPane }) {
           Create a New Note
         </Typography>
       </Pane.Header>
-      <Form
-        onClose={onClose}
-        refetch={fetchNotes}
-        note={NOTES_FORM_INITIAL_FORM_VALUES}
-        isEdit={false}
-      />
+      <Form onClose={onClose} note={NOTES_FORM_INITIAL_FORM_VALUES} />
     </Pane>
   );
 }
